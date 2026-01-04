@@ -163,3 +163,14 @@ LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = '/'
 RAZORPAY_KEY_ID = "rzp_test_Ryzx39JfxYsRNo"
 RAZORPAY_KEY_SECRET = "2YUzZFXhWYdmj9dklqkjIAST"
+
+if not DEBUG:
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@example.com",
+            password="admin123"
+        )
