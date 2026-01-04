@@ -106,7 +106,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 DEBUG =True
 
 ALLOWED_HOSTS = [
-    "airbnb-clone-2-qq17.onrender.com",
+    "airbnb-clone-2-qql7.onrender.com",
     ".onrender.com",
     "localhost",
     "127.0.0.1",
@@ -114,7 +114,7 @@ ALLOWED_HOSTS = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://airbnb-clone-2-qq17.onrender.com",
+    "https://airbnb-clone-2-qql7.onrender.com",
     "https://*.onrender.com",
 ]
 
