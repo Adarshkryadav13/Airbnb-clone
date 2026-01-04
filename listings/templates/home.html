@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if location_groups %}
+
+    {% for location, listings in location_groups.items %}
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">
+          Popular homes in {{ location }}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {% for listing in listings %}
+            <div class="bg-white rounded shadow p-3">
+
+              {% with listing.images.first as img %}
+                {% if img %}
+                  <img src="{{ img.image.url }}"
+                       class="h-48 w-full object-cover rounded">
+                {% else %}
+                  <div class="h-48 bg-gray-200 rounded"></div>
+                {% endif %}
+              {% endwith %}
+
+              <h3 class="font-semibold mt-2">
+                {{ listing.title }}
+              </h3>
+
+              <p class="text-gray-600">
+                ₹{{ listing.price_per_night }} / night
+              </p>
+
+              <a href="{% url 'listing_detail' listing.id %}"
+                 class="text-red-500 font-medium">
+                View details →
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+
+    {% else %}
+    <div class="mt-10 mb-10">
+      <h2 class="text-2xl font-semibold ">
+        No listings found
+      </h2>
+      <p class="text-gray-500 ">
+        Try changing your search or filter criteria.
+      </p>
+  
+      
+    </div>
+  {% endif %}
+  
+
+{% endblock %}
+
+

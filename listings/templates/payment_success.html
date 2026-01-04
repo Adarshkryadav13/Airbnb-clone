@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[70vh] flex items-center justify-center bg-gray-100">
+
+  <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8 text-center">
+
+    <!-- Success Icon -->
+    <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-green-100
+                flex items-center justify-center">
+      <span class="text-green-600 text-3xl">✓</span>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-2">
+      Payment Successful
+    </h2>
+
+    <p class="text-gray-500 mb-6">
+      Your booking has been confirmed
+    </p>
+
+    <!-- Booking Summary -->
+    <div class="border rounded-lg p-4 text-sm mb-6 text-left">
+      <div class="flex justify-between mb-2">
+        <span>Listing</span>
+        <span class="font-medium">{{ booking.listing.title }}</span>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Check-in</span>
+        <span>{{ booking.check_in }}</span>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Check-out</span>
+        <span>{{ booking.check_out }}</span>
+      </div>
+      <div class="flex justify-between font-semibold border-t pt-2">
+        <span>Total Paid</span>
+        <span>₹{{ booking.total_price }}</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex gap-4">
+      <a href="{% url 'my_bookings' %}"
+         class="flex-1 bg-red-500 text-white py-3 rounded-lg text-center">
+        My Bookings
+      </a>
+
+      <a href="{% url 'home' %}"
+         class="flex-1 border py-3 rounded-lg text-center">
+        Home
+      </a>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
